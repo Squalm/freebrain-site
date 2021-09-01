@@ -1,0 +1,11 @@
+{
+    "name": "freebrain-site",
+    "version": "0.0.1",
+    "repository": {
+        "url": "https://github.com/Squalm/freebrain-site"
+    },
+    "dependencies": {
+        "fs": "0.0.1-security",
+        "node-fetch": "^3.0.0"
+    }
+}
