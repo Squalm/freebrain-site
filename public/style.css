@@ -1,0 +1,19 @@
+* {
+    font-family: 'Staatliches', 'Times New Roman', Times, serif;
+    background-color: #111;
+    color: #EEE;
+    text-align: center;
+}
+
+h1 {
+    font-size: 8vmin;
+}
+
+.word, #placeholder {
+    font-size: 6vmin;
+    color: #0091AD;
+}
+
+#placeholder {
+    color: #EEE
+}
