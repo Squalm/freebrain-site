@@ -180,6 +180,7 @@ h1 {
 #explanation {
     font-size: 2vmin;
     margin-bottom: 0;
+    margin-top: 0;
 }
 
 .word, #l_placeholder, #r_placeholder {
@@ -233,6 +234,10 @@ h1 {
 
 #links {
     text-align: center;
+    font-size: 2vmin;
+}
+
+header {
     font-size: 2vmin;
 }
 

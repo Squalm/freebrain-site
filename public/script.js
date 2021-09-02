@@ -169,7 +169,7 @@ async function getTheme(word, side) {
     let links = "No. Links: " + links_arr.length.toString() + "<br>"
 
     for (let i = 0; i < links_arr.length; i++) {
-        links += '<a href="' + links_arr[i].link.link + '">' + links_arr[i].link.link + '</a><br>'
+        links += '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + links_arr[i].link.link + '</a><br>'
     }
     document.getElementById("links").innerHTML = links
 
