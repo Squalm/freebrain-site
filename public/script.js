@@ -199,122 +199,122 @@ function getting_new(side) {
 
 const las1 = document.getElementById("las1");
 las1.addEventListener("click", () => {
-    getTheme(document.getElementById("las1").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las1").innerText, "right");
+    getting_new("right");
 });
 
 const las2 = document.getElementById("las2");
 las2.addEventListener("click", () => {
-    getTheme(document.getElementById("las2").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las2").innerText, "right");
+    getting_new("right");
 });
 
 const las3 = document.getElementById("las3");
 las3.addEventListener("click", () => {
-    getTheme(document.getElementById("las3").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las3").innerText, "right");
+    getting_new("right");
 });
 
 const las4 = document.getElementById("las4");
 las4.addEventListener("click", () => {
-    getTheme(document.getElementById("las4").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las4").innerText, "right");
+    getting_new("right");
 });
 
 const las5 = document.getElementById("las5");
 las5.addEventListener("click", () => {
-    getTheme(document.getElementById("las5").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las5").innerText, "right");
+    getting_new("right");
 });
 
 const las6 = document.getElementById("las6");
 las6.addEventListener("click", () => {
-    getTheme(document.getElementById("las6").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las6").innerText, "right");
+    getting_new("right");
 });
 
 const las7 = document.getElementById("las7");
 las7.addEventListener("click", () => {
-    getTheme(document.getElementById("las7").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las7").innerText, "right");
+    getting_new("right");
 });
 
 const las8 = document.getElementById("las8");
 las8.addEventListener("click", () => {
-    getTheme(document.getElementById("las8").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las8").innerText, "right");
+    getting_new("right");
 });
 
 const las9 = document.getElementById("las9");
 las9.addEventListener("click", () => {
-    getTheme(document.getElementById("las9").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las9").innerText, "right");
+    getting_new("right");
 });
 
 const las10 = document.getElementById("las10");
 las10.addEventListener("click", () => {
-    getTheme(document.getElementById("las10").innerText, "left");
-    getting_new("left");
+    getTheme(document.getElementById("las10").innerText, "right");
+    getting_new("right");
 });
 
 // right side
 
 const ras1 = document.getElementById("ras1");
 ras1.addEventListener("click", () => {
-    getTheme(document.getElementById("ras1").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras1").innerText, "left");
+    getting_new("left");
 });
 
 const ras2 = document.getElementById("ras2");
 ras2.addEventListener("click", () => {
-    getTheme(document.getElementById("ras2").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras2").innerText, "left");
+    getting_new("left");
 });
 
 const ras3 = document.getElementById("ras3");
 ras3.addEventListener("click", () => {
-    getTheme(document.getElementById("ras3").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras3").innerText, "left");
+    getting_new("left");
 });
 
 const ras4 = document.getElementById("ras4");
 ras4.addEventListener("click", () => {
-    getTheme(document.getElementById("ras4").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras4").innerText, "left");
+    getting_new("left");
 });
 
 const ras5 = document.getElementById("ras5");
 ras5.addEventListener("click", () => {
-    getTheme(document.getElementById("ras5").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras5").innerText, "left");
+    getting_new("left");
 });
 
 const ras6 = document.getElementById("ras6");
 ras6.addEventListener("click", () => {
-    getTheme(document.getElementById("ras6").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras6").innerText, "left");
+    getting_new("left");
 });
 
 const ras7 = document.getElementById("ras7");
 ras7.addEventListener("click", () => {
-    getTheme(document.getElementById("ras7").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras7").innerText, "left");
+    getting_new("left");
 });
 
 const ras8 = document.getElementById("ras8");
 ras8.addEventListener("click", () => {
-    getTheme(document.getElementById("ras8").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras8").innerText, "left");
+    getting_new("left");
 });
 
 const ras9 = document.getElementById("ras9");
 ras9.addEventListener("click", () => {
-    getTheme(document.getElementById("ras9").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras9").innerText, "left");
+    getting_new("left");
 });
 
 const ras10 = document.getElementById("ras10");
 ras10.addEventListener("click", () => {
-    getTheme(document.getElementById("ras10").innerText, "right");
-    getting_new("right");
+    getTheme(document.getElementById("ras10").innerText, "left");
+    getting_new("left");
 });
