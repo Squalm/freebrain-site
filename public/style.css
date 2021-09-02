@@ -230,3 +230,16 @@ h1 {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+#links {
+    text-align: center;
+    font-size: 2vmin;
+}
+
+a {
+    color: inherit;
+    font-size: inherit;
+}
+a:hover {
+    color: #0091AD;
+}

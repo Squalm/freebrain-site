@@ -5,6 +5,13 @@ async function getTheme(word, side) {
         query = ""
     } else {
 
+        let otherword = ""
+        if (side == "right") {
+            otherword = document.getElementById("l_theme_word").innerText;
+        } else {
+            otherword = document.getElementById("r_theme_word").innerText;
+        }
+
         query = `query get_counts_by_word_site 
         {
             keywords(where: {name: {_eq: "`+word+`" }}) 
@@ -50,10 +57,16 @@ async function getTheme(word, side) {
                 keyword_10 {
                     name
                 }
+                join_to_link(where: {link: {join_to_keyword: {keyword: {name: {_eq: "`+otherword+`"}}}}}) {
+                    link {
+                        link
+                    }
+                }
             }
         }` 
 
     }
+    console.log(query)
 
     const hasura_query = fetch("https://free-brain.hasura.app/v1/graphql", {
         body: JSON.stringify({query: query}),
@@ -149,7 +162,16 @@ async function getTheme(word, side) {
     height = (extract.associated_10_count / extract.associated_1_count) * 10
     document.getElementById("las10").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";*/
 
-    // If words match, highlight them
+    // Get links
+
+    let links = "";
+    let links_arr = extract.join_to_link;
+    links_arr = [...new Set(links_arr)];
+
+    for (let i = 0; i < links_arr.length; i++) {
+        links += '<a href="' + links_arr[i].link.link + '">' + links_arr[i].link.link + '</a><br>'
+    }
+    document.getElementById("links").innerHTML = links
 
 }
 
