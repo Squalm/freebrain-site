@@ -164,9 +164,9 @@ async function getTheme(word, side) {
 
     // Get links
 
-    let links = "";
     let links_arr = extract.join_to_link;
     links_arr = [...new Set(links_arr)];
+    let links = "No. Links: " + links_arr.length.toString() + "<br>"
 
     for (let i = 0; i < links_arr.length; i++) {
         links += '<a href="' + links_arr[i].link.link + '">' + links_arr[i].link.link + '</a><br>'
