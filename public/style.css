@@ -2,7 +2,7 @@
     font-family: 'Staatliches', 'Times New Roman', Times, serif;
     background-color: #050505;
     color: #EEE;
-    text-align: center;
+    text-align: left;
 }
 
 /* my thanks to http://aleclownes.com/2017/02/01/crt-display.html */
@@ -10,7 +10,7 @@
 body::before {
     content: " ";
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -90,7 +90,7 @@ body::before {
 body::after {
     content: " ";
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -170,17 +170,38 @@ body::after {
 
 body {
     animation: textShadow 1.6s infinite;
+    padding: 8vmin;
 }
 
 h1 {
     font-size: 8vmin;
+    margin-top: 0;
+}
+
+p {
+    font-size: 2vmin;
+    margin-bottom: 0;
 }
 
 .word, #placeholder {
+    font-size: 8vmin;
+    color: #eee;
+}
+
+#theme_word {
     font-size: 6vmin;
     color: #0091AD;
 }
 
+.word_box {
+    padding: 0;
+}
+
 #placeholder {
     color: #EEE
+}
+
+.count {
+    font-size: 2vmin;
+    color: #0091AD
 }
