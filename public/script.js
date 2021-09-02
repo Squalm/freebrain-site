@@ -66,19 +66,14 @@ async function getTheme(word, side) {
 
     // Display it on the site
 
-    let words = document.getElementsByClassName("word_box");
-    for (let word = 0; word < words.length; word++) {
-        words[word].style = "display: block;";
-    }
     document.getElementById("l_theme_word").style = "display: block;";
     document.getElementById("r_theme_word").style = "display: block;";
 
-    document.getElementById("l_placeholder").style = "display: none;";
-    document.getElementById("r_placeholder").style = "display: none;"
+    document.getElementById("l_placeholder").innerText = "";
+    document.getElementById("r_placeholder").innerText = ""
 
     if (side == "left") {
 
-        document.getElementById("l_placeholder").style = "display: none";
         document.getElementById("l_theme_word").innerText = extract.name;
         document.getElementById("las1").innerText = extract.keyword_1.name;
         document.getElementById("las1c").innerText = extract.associated_1_count;
@@ -105,7 +100,6 @@ async function getTheme(word, side) {
 
     if (side == "right") {
 
-        document.getElementById("r_placeholder").style = "display: none";
         document.getElementById("r_theme_word").innerText = extract.name;
         document.getElementById("ras1").innerText = extract.keyword_1.name;
         document.getElementById("ras1c").innerText = extract.associated_1_count;
@@ -176,15 +170,28 @@ window.onload = async () => {
     getTheme(rand_word_r, "right")
 }
 
-function getting_new() {
-    let words = document.getElementsByClassName("word_box");
-    for (let word = 0; word < words.length; word++) {
-        words[word].style = "display: none;";
+function getting_new(side) {
+
+    if (side == "left") {    
+
+        let words = document.getElementsByClassName("left");
+        for (let word = 0; word < words.length; word++) {
+            words[word].innerText = "";
+        }
+
+        document.getElementById("l_theme_word").style = "display: none;";
+        document.getElementById("l_placeholder").innerText = "Getting words...";
+    } else if (side == "right") {
+
+        let words = document.getElementsByClassName("right");
+        for (let word = 0; word < words.length; word++) {
+            words[word].innerText = "";
+        }
+
+        document.getElementById("r_theme_word").style = "display: none;";
+        document.getElementById("r_placeholder").innerText = "Getting words...";
     }
-    document.getElementById("l_theme_word").style = "display: none;";
-    document.getElementById("l_placeholder").style = "display: block;";
-    document.getElementById("r_theme_word").style = "display: none;";
-    document.getElementById("r_placeholder").style = "display: block;";
+
 }
 
 // Detect clicks
@@ -193,61 +200,61 @@ function getting_new() {
 const las1 = document.getElementById("las1");
 las1.addEventListener("click", () => {
     getTheme(document.getElementById("las1").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las2 = document.getElementById("las2");
 las2.addEventListener("click", () => {
     getTheme(document.getElementById("las2").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las3 = document.getElementById("las3");
 las3.addEventListener("click", () => {
     getTheme(document.getElementById("las3").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las4 = document.getElementById("las4");
 las4.addEventListener("click", () => {
     getTheme(document.getElementById("las4").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las5 = document.getElementById("las5");
 las5.addEventListener("click", () => {
     getTheme(document.getElementById("las5").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las6 = document.getElementById("las6");
 las6.addEventListener("click", () => {
     getTheme(document.getElementById("las6").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las7 = document.getElementById("las7");
 las7.addEventListener("click", () => {
     getTheme(document.getElementById("las7").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las8 = document.getElementById("las8");
 las8.addEventListener("click", () => {
     getTheme(document.getElementById("las8").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las9 = document.getElementById("las9");
 las9.addEventListener("click", () => {
     getTheme(document.getElementById("las9").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 const las10 = document.getElementById("las10");
 las10.addEventListener("click", () => {
     getTheme(document.getElementById("las10").innerText, "left");
-    getting_new();
+    getting_new("left");
 });
 
 // right side
@@ -255,59 +262,59 @@ las10.addEventListener("click", () => {
 const ras1 = document.getElementById("ras1");
 ras1.addEventListener("click", () => {
     getTheme(document.getElementById("ras1").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras2 = document.getElementById("ras2");
 ras2.addEventListener("click", () => {
     getTheme(document.getElementById("ras2").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras3 = document.getElementById("ras3");
 ras3.addEventListener("click", () => {
     getTheme(document.getElementById("ras3").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras4 = document.getElementById("ras4");
 ras4.addEventListener("click", () => {
     getTheme(document.getElementById("ras4").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras5 = document.getElementById("ras5");
 ras5.addEventListener("click", () => {
     getTheme(document.getElementById("ras5").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras6 = document.getElementById("ras6");
 ras6.addEventListener("click", () => {
     getTheme(document.getElementById("ras6").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras7 = document.getElementById("ras7");
 ras7.addEventListener("click", () => {
     getTheme(document.getElementById("ras7").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras8 = document.getElementById("ras8");
 ras8.addEventListener("click", () => {
     getTheme(document.getElementById("ras8").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras9 = document.getElementById("ras9");
 ras9.addEventListener("click", () => {
     getTheme(document.getElementById("ras9").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
 
 const ras10 = document.getElementById("ras10");
 ras10.addEventListener("click", () => {
     getTheme(document.getElementById("ras10").innerText, "right");
-    getting_new();
+    getting_new("right");
 });
