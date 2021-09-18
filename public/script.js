@@ -1,15 +1,20 @@
-async function getTheme(word, side) {
+async function getTheme(word, side, otherword_arg = "") {
 
     let query = ""
     if (word == "top_words") {
         query = ""
     } else {
 
+        
         let otherword = ""
-        if (side == "right") {
-            otherword = document.getElementById("l_theme_word").innerText;
+        if (otherword_arg == "") {
+            if (side == "right") {
+                otherword = document.getElementById("l_theme_word").innerText;
+            } else {
+                otherword = document.getElementById("r_theme_word").innerText;
+            }
         } else {
-            otherword = document.getElementById("r_theme_word").innerText;
+            otherword = otherword_arg;
         }
 
         query = `query get_counts_by_word_site 
@@ -58,15 +63,13 @@ async function getTheme(word, side) {
                     name
                 }
                 join_to_link(where: {link: {join_to_keyword: {keyword: {name: {_eq: "`+otherword+`"}}}}}) {
-                    link {
-                        link
-                    }
+                    link { link }
                 }
             }
         }` 
 
     }
-    console.log(query)
+    // console.log(query)
 
     const hasura_query = fetch("https://free-brain.hasura.app/v1/graphql", {
         body: JSON.stringify({query: query}),
@@ -74,6 +77,7 @@ async function getTheme(word, side) {
     }).then( (response) => {return response.json()} );
 
     const data = await hasura_query;
+    console.log(data);
     const extract = data.data.keywords[0];
     console.log(extract);
 
@@ -188,8 +192,8 @@ window.onload = async () => {
     const rand_word_l = words[~~(Math.random() * words.length)].name;
     const rand_word_r = words[~~(Math.random() * words.length)].name;
 
-    getTheme(rand_word_l, "left")
-    getTheme(rand_word_r, "right")
+    getTheme(rand_word_l, "left", rand_word_r)
+    getTheme(rand_word_r, "right", rand_word_l)
 }
 
 function getting_new(side) {
