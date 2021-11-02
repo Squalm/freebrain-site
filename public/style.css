@@ -248,3 +248,10 @@ a {
 a:hover {
     color: #0091AD;
 }
+
+input {
+    border-style: none;
+    padding: 0;
+    margin-right: 0;
+    width: 100%;
+}

@@ -12,15 +12,15 @@
     </head>
     <body>
 
-        <header><a href="https://github.com/Squalm/freebrain-site" target="_blank" rel="noopener noreferrer">Github</a> -- <a href="https://github.com/Squalm/freebrain-site/issues" target="_blank" rel="noopener noreferrer">Bugs</a> -- <a href=https://github.com/Squalm/freebrain-rssreader target="_blank" rel="noopener noreferrer">RSS aggregator</a></header>
+        <header><a href="./stats/index.html">Stats/About</a> ---- <a href="https://github.com/Squalm/freebrain-site" target="_blank" rel="noopener noreferrer">Github</a> -- <a href="https://github.com/Squalm/freebrain-site/issues" target="_blank" rel="noopener noreferrer">Bugs</a> -- <a href=https://github.com/Squalm/freebrain-rssreader target="_blank" rel="noopener noreferrer">RSS aggregator</a></header>
 
-        <p id="explanation">Pick a word and see related words (according to the news). Refresh to pick a new random word or click on any of the words shown to see their associations.</p>
+        <p id="explanation">Search for words by typing them in the keyword fields. Click any of the listed words to see their connections.</p>
         <h1>Interbrain data viewer</h1>
 
         <div class="row">
             <div class="column">
                 <span class="left" id="l_placeholder">Getting words...</span>
-                <span class="left word theme" id="l_theme_word"></span><br>
+                <input class="left word theme" id="l_theme_word" onkeypress="enterPressed(event, 'left')" /><br>
                 <div class="word_box">
                     <span class="left word as" id="las1"></span>
                     <span class="left word count" id="las1c"></span>
@@ -65,7 +65,7 @@
 
             <div class="column">
                 <span class="right" id="r_placeholder">Getting words...</span>
-                <span class="right word theme" id="r_theme_word"></span><br>
+                <input class="right word theme" id="r_theme_word" onkeypress="enterPressed(event, 'right')"></input><br>
                 <div class="word_box"><p class="right_p"><span class="right word count" id="ras1c"></span>
                     <span class="right word as" id="ras1"></span></p></div>
                 <div class="word_box"><p class="right_p"><span class="right word count" id="ras2c"></span>

@@ -9,9 +9,9 @@ async function getTheme(word, side, otherword_arg = "") {
         let otherword = ""
         if (otherword_arg == "") {
             if (side == "right") {
-                otherword = document.getElementById("l_theme_word").innerText;
+                otherword = document.getElementById("l_theme_word").value;
             } else {
-                otherword = document.getElementById("r_theme_word").innerText;
+                otherword = document.getElementById("r_theme_word").value;
             }
         } else {
             otherword = otherword_arg;
@@ -91,7 +91,7 @@ async function getTheme(word, side, otherword_arg = "") {
 
     if (side == "left") {
 
-        document.getElementById("l_theme_word").innerText = extract.name;
+        document.getElementById("l_theme_word").placeholder = extract.name;
         document.getElementById("las1").innerText = extract.keyword_1.name;
         document.getElementById("las1c").innerText = extract.associated_1_count;
         document.getElementById("las2").innerText = extract.keyword_2.name;
@@ -117,7 +117,7 @@ async function getTheme(word, side, otherword_arg = "") {
 
     if (side == "right") {
 
-        document.getElementById("r_theme_word").innerText = extract.name;
+        document.getElementById("r_theme_word").placeholder = extract.name;
         document.getElementById("ras1").innerText = extract.keyword_1.name;
         document.getElementById("ras1c").innerText = extract.associated_1_count;
         document.getElementById("ras2").innerText = extract.keyword_2.name;
@@ -198,7 +198,7 @@ window.onload = async () => {
 
 function getting_new(side) {
 
-    if (side == "left") {    
+    if (side == "left") {  
 
         let words = document.getElementsByClassName("left");
         for (let word = 0; word < words.length; word++) {
@@ -218,6 +218,16 @@ function getting_new(side) {
         document.getElementById("r_placeholder").innerText = "Getting words...";
     }
 
+}
+
+// Detect enter key to submit typed words
+function enterPressed(event, side) {
+    if (event.keyCode == 13) {
+        console.log(side);
+        getting_new(side);
+        if (side == "left") { getTheme(document.getElementById("l_theme_word").value, side) }
+        else if (side == "right") { getTheme(document.getElementById("r_theme_word").value, side) } 
+    }
 }
 
 // Detect clicks
