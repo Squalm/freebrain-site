@@ -255,3 +255,12 @@ input {
     margin-right: 0;
     width: 100%;
 }
+
+#r_theme_word::placeholder {
+    opacity: 1;
+    color: #EA7317;
+}
+#l_theme_word::placeholder {
+    opacity: 1;
+    color: #0091AD;
+}
