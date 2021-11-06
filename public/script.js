@@ -226,7 +226,10 @@ function enterPressed(event, side) {
         console.log(side);
         getting_new(side);
         if (side == "left") { getTheme(document.getElementById("l_theme_word").value, side) }
-        else if (side == "right") { getTheme(document.getElementById("r_theme_word").value, side) } 
+        else if (side == "right") { getTheme(document.getElementById("r_theme_word").value, side) }
+        
+        document.getElementById("l_theme_word").value = "";
+        document.getElementById("r_theme_word").value = "";
     }
 }
 
