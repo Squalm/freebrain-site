@@ -9,9 +9,9 @@ async function getTheme(word, side, otherword_arg = "") {
         let otherword = ""
         if (otherword_arg == "") {
             if (side == "right") {
-                otherword = document.getElementById("l_theme_word").value;
+                otherword = document.getElementById("l_theme_word").placeholder;
             } else {
-                otherword = document.getElementById("r_theme_word").value;
+                otherword = document.getElementById("r_theme_word").placeholder;
             }
         } else {
             otherword = otherword_arg;
