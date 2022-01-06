@@ -179,6 +179,10 @@ async function getTheme(word, side, otherword_arg = "") {
             end_chunk += '.' + chunked[i]
         }
         links += '<span><span style="color: #0091AD">' + links_arr[i].link.published.split('T')[0] + '</span>: ' + '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + chunked[0].split('//')[1] + '.<span style="color: #EA7317">' + chunked[1] + '</span>'+ end_chunk + '</a></span><br>'
+        if (i >= 100) {
+            links += 'Cut off after 100 links.'
+            break
+        }
     }
     document.getElementById("links").innerHTML = links
 
