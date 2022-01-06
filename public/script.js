@@ -62,8 +62,8 @@ async function getTheme(word, side, otherword_arg = "") {
                 keyword_10 {
                     name
                 }
-                join_to_link(where: {link: {join_to_keyword: {keyword: {name: {_eq: "`+otherword+`"}}}}}) {
-                    link { link }
+                join_to_link(where: {link: {join_to_keyword: {keyword: {name: {_eq: "`+otherword+`"}}}}}, order_by: {link: {published: desc}}) {
+                    link { link, published }
                 }
             }
         }` 
@@ -173,7 +173,7 @@ async function getTheme(word, side, otherword_arg = "") {
     let links = "No. Links: " + links_arr.length.toString() + "<br>"
 
     for (let i = 0; i < links_arr.length; i++) {
-        links += '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + links_arr[i].link.link + '</a><br>'
+        links += '<span>' + links_arr[i].link.published.split('T')[0] + ': ' + '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + links_arr[i].link.link.split('//')[1].split('/')[0] + '</a></span><br>'
     }
     document.getElementById("links").innerHTML = links
 
