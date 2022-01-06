@@ -173,7 +173,12 @@ async function getTheme(word, side, otherword_arg = "") {
     let links = "No. Links: " + links_arr.length.toString() + "<br>"
 
     for (let i = 0; i < links_arr.length; i++) {
-        links += '<span>' + links_arr[i].link.published.split('T')[0] + ': ' + '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + links_arr[i].link.link.split('//')[1].split('/')[0] + '</a></span><br>'
+        let chunked = links_arr[i].link.link.split('.') // #0091AD #EA7317
+        let end_chunk = ''
+        for (let i = 2; i < chunked.length; i++) {
+            end_chunk += '.' + chunked[i]
+        }
+        links += '<span><span style="color: #0091AD">' + links_arr[i].link.published.split('T')[0] + '</span>: ' + '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + chunked[0].split('//')[1] + '.<span style="color: #EA7317">' + chunked[1] + '</span>'+ end_chunk + '</a></span><br>'
     }
     document.getElementById("links").innerHTML = links
 
