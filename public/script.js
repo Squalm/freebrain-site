@@ -69,7 +69,6 @@ async function getTheme(word, side, otherword_arg = "") {
         }` 
 
     }
-    // console.log(query)
 
     const hasura_query = fetch("https://free-brain.hasura.app/v1/graphql", {
         body: JSON.stringify({query: query}),
@@ -141,50 +140,78 @@ async function getTheme(word, side, otherword_arg = "") {
 
     }
 
-    // Format it for site
-
-    /*add_height = 0;
-
-    height = (extract.associated_1_count / extract.associated_1_count) * 10;
-    document.getElementById("las1").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_2_count / extract.associated_1_count) * 10
-    document.getElementById("las2").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_3_count / extract.associated_1_count) * 10
-    document.getElementById("las3").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_4_count / extract.associated_1_count) * 10
-    document.getElementById("las4").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_5_count / extract.associated_1_count) * 10
-    document.getElementById("las5").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_6_count / extract.associated_1_count) * 10
-    document.getElementById("las6").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_7_count / extract.associated_1_count) * 10
-    document.getElementById("las7").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_8_count / extract.associated_1_count) * 10
-    document.getElementById("las8").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_9_count / extract.associated_1_count) * 10
-    document.getElementById("las9").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";
-    height = (extract.associated_10_count / extract.associated_1_count) * 10
-    document.getElementById("las10").style = "font-size: " + height.toString() + "vmin; line-height: " + (height + add_height).toString() + "vmin;";*/
-
     // Get links
 
     let links_arr = extract.join_to_link;
     links_arr = [...new Set(links_arr)];
-    let links = "No. Links: " + links_arr.length.toString() + "<br>"
+    let links = "No. Links: " + links_arr.length.toString() + "<br>";
 
     for (let i = 0; i < links_arr.length; i++) {
-        let chunked = links_arr[i].link.link.split('.') // #0091AD #EA7317
-        let end_chunk = ''
+        let chunked = links_arr[i].link.link.split('.'); // #0091AD #EA7317
+        let end_chunk = '';
         for (let i = 2; i < chunked.length; i++) {
             end_chunk += '.' + chunked[i]
         }
         links += '<span><span style="color: #0091AD">' + links_arr[i].link.published.split('T')[0] + '</span>: ' + '<a href="' + links_arr[i].link.link + '" target="_blank" rel="noopener noreferrer">' + chunked[0].split('//')[1] + '.<span style="color: #EA7317">' + chunked[1] + '</span>'+ end_chunk + '</a></span><br>'
         if (i >= 100) {
-            links += 'Cut off after 100 links.'
+            links += 'Cut off after 100 links.';
             break
         }
     }
-    document.getElementById("links").innerHTML = links
+    document.getElementById("links").innerHTML = links;
+
+    // Set up graph
+    let _l = ""
+    let _r = ""
+    if (side == "left") {
+        _l = word;
+        _r = otherword;
+    } else {
+        _l = otherword;
+        _r = word;
+    }
+    let _labels = []
+    let _counts = []
+    for (let i = 0; i < extract.join_to_link.length; i++) {
+        if (!(extract.join_to_link[i].link.published.split("T")[0] in _labels)) {
+            _labels.push(extract.join_to_link[i].link.published.split("T")[0]);
+            _counts.push(1);
+        } else {
+            _counts[-1] += 1;
+        }
+    }
+
+    const graph_data = {
+    labels: _labels,
+    datasets: [{
+        label: _l + " / " + _r + " intersection mentions",
+        data: _counts,
+        backgroundColor: [
+            'rgba(0, 145, 173, 0.2)'
+        ],
+        borderColor: [
+            'rgb(0, 145, 173)'
+        ],
+        borderWidth: 1
+    }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        },
+    };
+
+    const mentions = new Chart(
+        document.getElementById('mentions'),
+        config
+    );
 
 }
 
