@@ -1,3 +1,5 @@
+const api_url = 'https://vkfwvlxduoseejskgrxg.hasura.eu-central-1.nhost.run/v1/graphql';
+
 async function getTheme(word, side, otherword_arg = "") {
 
     let query = ""
@@ -62,7 +64,7 @@ async function getTheme(word, side, otherword_arg = "") {
                 keyword_10 {
                     name
                 }
-                join_to_link(where: {link: {join_to_keyword: {keyword: {name: {_eq: "`+otherword+`"}}}}}, order_by: {link: {published: desc}}) {
+                links_join_keywords(where: {link: {links_join_keywords: {keyword: {name: {_eq: "`+otherword+`"}}}}}, order_by: {link: {published: desc}}) {
                     link { link, published }
                 }
             }
@@ -71,7 +73,7 @@ async function getTheme(word, side, otherword_arg = "") {
     }
     // console.log(query)
 
-    const hasura_query = fetch("https://free-brain.hasura.app/v1/graphql", {
+    const hasura_query = fetch(api_url, {
         body: JSON.stringify({query: query}),
         method: "POST"
     }).then( (response) => {return response.json()} );
@@ -192,11 +194,12 @@ window.onload = async () => {
 
     // First, pick a random word
     query = "query random_word_site { keywords { name } }"
-    const hasura_query = fetch("https://free-brain.hasura.app/v1/graphql", {
+    const hasura_query = fetch(api_url, {
         body: JSON.stringify({query: query}),
         method: "POST"
     }).then( (response) => {return response.json()} );
     let words = await hasura_query;
+    console.log(words)
     words = words.data.keywords;
     const rand_word_l = words[~~(Math.random() * words.length)].name;
     const rand_word_r = words[~~(Math.random() * words.length)].name;
