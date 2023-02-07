@@ -1,3 +1,5 @@
+import { NhostClient } from "@nhost/nhost-js";
+
 const api_url = 'https://vkfwvlxduoseejskgrxg.hasura.eu-central-1.nhost.run/v1/graphql';
 
 async function getTheme(word, side, otherword_arg = "") {
@@ -192,15 +194,19 @@ async function getTheme(word, side, otherword_arg = "") {
 
 window.onload = async () => {
 
+    // First first set up nhost client
+    const nhost = new NhostClient({
+        subdomain: 'vkfwvlxduoseejskgrxg',
+        region: 'eu-central-1'
+    });
+
     // First, pick a random word
-    query = "query random_word_site { keywords { name } }"
-    const hasura_query = fetch(api_url, {
-        body: JSON.stringify({query: query}),
-        method: "POST"
-    }).then( (response) => {return response.json()} );
-    let words = await hasura_query;
-    console.log(words)
-    words = words.data.keywords;
+    query = "query random_word_site { keywords { name } }";
+    const { data, error } = await nhost.graphql.request(query);
+
+    console.log(data);
+    console.log(error);
+    words = data.keywords;
     const rand_word_l = words[~~(Math.random() * words.length)].name;
     const rand_word_r = words[~~(Math.random() * words.length)].name;
 

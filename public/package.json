@@ -5,8 +5,10 @@
         "url": "https://github.com/Squalm/freebrain-site"
     },
     "dependencies": {
+        "@nhost/nhost-js": "^1.13.2",
         "chart.js": "^3.7.0",
         "fs": "0.0.1-security",
+        "graphql": "^16.6.0",
         "node-fetch": "^3.0.0"
     }
 }
