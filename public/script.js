@@ -1,3 +1,5 @@
+import { NhostClient } from '@nhost/nhost-js'
+
 const api_url = 'https://vkfwvlxduoseejskgrxg.hasura.eu-central-1.nhost.run/v1/graphql';
 
 async function getTheme(word, side, otherword_arg = "") {
