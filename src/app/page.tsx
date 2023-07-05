@@ -1,4 +1,4 @@
-import styles from './page.module.css'
+import './page.module.css'
 
 var prev_words = [] as string[];
 var latest = "Loading Words...";
@@ -37,6 +37,7 @@ const Top = () => {
   )
 };
 
+/*
 // Show the latest words and all previous ones.
 function Words({l = [""], final = ""}) {
   const out = [];
@@ -72,34 +73,6 @@ function Relations({ l }: { l: any[] }) {
   )
 };
 
-/*
-function Links({ urls }: { urls: any[] }) {
-
-  let links = [<p>No. Links: {urls.length}</p>]
-
-  for (let i = 0; i < urls.length; i++) {
-    let chunked = urls[i].link.split('.'); // #0091AD #EA7317
-    let end_chunk = '';
-    for (let i = 2; i < chunked.length; i++) {
-      end_chunk += '.' + chunked[i]
-    }
-    links.push(<div>
-      <span><span style="color: #0091AD">
-      {urls[i].published.split('T')[0]} 
-      </span>: <a href="{links_arr[i].link.link}" target="_blank" rel="noopener noreferrer"> 
-      {chunked[0].split('//')[1]}.<span style="color: #EA7317"> 
-      {chunked[1]}</span>{end_chunk}</a></span><br />
-      </div>);
-    if (i >= 100) {
-      links += 'Cut off after 100 links.'
-      break
-    }
-  }
-
-  return (<div id="links">{links_formatted}</div>)
-};
-*/
-
 export default function Home() {
   return (
     <main>
@@ -116,6 +89,16 @@ export default function Home() {
   )
 };
 
-/* -- LOGIC -- */
+*/
 
+export default function Home() {
+  return (
+    <main>
+      <Meta />
+      <Top />
+    </main>
+  )
+}
+
+/* -- LOGIC -- */
 
