@@ -9,4 +9,4 @@ Use it to view trends in news articles' headlines.
 
 # All time decayed counts:
 ![Graph showing decayed counts for all the data collected](/assets/images/decayed.png)  
-Started on 10 July 2023.
+Started on 10 July 2023. Showing words with count >20 and relationship strength >6.
