@@ -8,5 +8,5 @@ title: Interbrain
 <hr>
 {% for post in site.posts %}
     <h3>{{post.title}}</h3>
-    <img src={{ post.image }} alt="Graph showing connections between words in news headlines in the given week" />
+    <a href="{{ post.url }}"><img src={{ post.image }} alt="Graph showing connections between words in news headlines in the given week" /></a>
 {% endfor %}
