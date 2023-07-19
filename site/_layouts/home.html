@@ -1,0 +1,12 @@
+---
+layout: default
+title: Interbrain
+---
+<br>
+{{ content }}
+
+<hr>
+{% for post in site.posts %}
+    <h3>{{post.title}}</h3>
+    <img src={{ post.image }} alt="Graph showing connections between words in news headlines in the given week" />
+{% endfor %}

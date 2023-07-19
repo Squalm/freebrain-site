@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200&display=swap');
+
+$text_stack: 'Jost', sans-serif;
+$text: #FFF;
+$bkg: #272932;
+$highlight: #A1C349;
+
+body {
+    font-family: $text_stack;
+    background-color: $bkg;
+    color: $text;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 2.5em;
+
+    @media (min-width: 1100px) {
+        margin-left: calc(50vw - 500px);
+        margin-right: calc(50vw - 500px);
+    }
+}
+
+h1, h2, h3 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+a {
+    color: $highlight;
+}
