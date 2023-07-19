@@ -8,4 +8,5 @@ This is the Interbrain Data Viewer.
 Use it to view trends in news articles' headlines.
 
 # All time decayed counts:
-![Graph showing decayed counts for all the data collected](/assets/images/tot.png)
+![Graph showing decayed counts for all the data collected](/assets/images/decayed.png)  
+Started on 10 July 2023.
